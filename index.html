@@ -1,0 +1,2172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pyramid College | Excellence in Business & Technology Education</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+    /* Charcoal - Sophisticated & Modern */
+    --primary: #374151;
+    --primary-dark: #1f2937;
+    --primary-light: #4b5563;
+    
+    /* Coral - Vibrant & Engaging */
+    --secondary: #f97316;
+    --secondary-dark: #ea580c;
+    --secondary-light: #fb923c;
+    
+    /* Clean Neutrals */
+    --dark: #111827;
+    --light: #f9fafb;
+    --gray: #6b7280;
+    --gray-light: #f3f4f6;
+    
+    /* Minimal Accents */
+    --accent: #06b6d4;
+    --accent-dark: #0891b2;
+    --accent-light: #22d3ee;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --info: #8b5cf6;
+    --white: #ffffff;
+    
+    /* Subtle Effects */
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.08);
+    --shadow-xl: 0 15px 35px rgba(0, 0, 0, 0.12);
+    --border-radius: 6px;
+    --transition: all 0.25s ease-in-out;
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            color: var(--dark);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .logo p {
+            font-size: 0.8rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            color: var(--white);
+        }
+
+        .nav-cta:hover::after {
+            width: 0;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: var(--white);
+            min-width: 240px;
+            box-shadow: var(--shadow-xl);
+            border-radius: var(--border-radius);
+            z-index: 1;
+            top: 80%;
+            left: 0;
+            margin-top: 10px;
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+        }
+
+        .dropdown-content a {
+            color: var(--dark);
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .dropdown-content a i {
+            color: var(--primary);
+            width: 20px;
+            text-align: center;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--gray-light);
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Enhanced 3D Slider Section */
+        .slider-section {
+            padding-top: 120px;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 15s infinite linear;
+        }
+
+        .particle:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 20s;
+        }
+
+        .particle:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 70%;
+            left: 80%;
+            animation-delay: 2s;
+            animation-duration: 25s;
+        }
+
+        .particle:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            top: 50%;
+            left: 20%;
+            animation-delay: 4s;
+            animation-duration: 18s;
+        }
+
+        .particle:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 70%;
+            animation-delay: 6s;
+            animation-duration: 22s;
+        }
+
+        .particle:nth-child(5) {
+            width: 90px;
+            height: 90px;
+            top: 80%;
+            left: 30%;
+            animation-delay: 8s;
+            animation-duration: 30s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(100px, 50px) rotate(90deg);
+            }
+            50% {
+                transform: translate(200px, 0) rotate(180deg);
+            }
+            75% {
+                transform: translate(100px, -50px) rotate(270deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        .slider-container {
+            width: 100%;
+            max-width: 1200px;
+            height: 600px;
+            perspective: 1200px;
+            position: relative;
+            margin: 0 auto;
+            z-index: 5;
+        }
+
+        .slider {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        .slide {
+            position: absolute;
+            width: 80%;
+            height: 85%;
+            left: 10%;
+            top: 7.5%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            transition: transform 1.2s, opacity 1.2s, z-index 1.2s;
+            background-size: cover;
+            background-position: center;
+            transform-origin: center center;
+        }
+
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 3rem;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+            color: white;
+            transform: translateY(120px);
+            opacity: 0;
+            transition: all 0.7s ease 0.5s;
+        }
+
+        .slide.active .slide-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .slide h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .slide p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+
+        .slider-nav {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .slider-nav button {
+            background: rgba(255, 255, 255, 0.4);
+            border: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            margin: 0 8px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider-nav button.active {
+            background: var(--secondary);
+            transform: scale(1.4);
+            box-shadow: 0 0 15px var(--secondary);
+        }
+
+        /* 3D Floating Elements */
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease;
+            animation: floatElement 15s infinite ease-in-out;
+        }
+
+        .element-1 {
+            top: 15%;
+            left: 5%;
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            animation-delay: 0s;
+        }
+
+        .element-2 {
+            top: 25%;
+            right: 5%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            animation-delay: 2s;
+        }
+
+        .element-3 {
+            bottom: 20%;
+            left: 5%;
+            background: linear-gradient(135deg, #ff4081, #c60055);
+            animation-delay: 4s;
+        }
+
+        .element-4 {
+            bottom: 30%;
+            right: 5%;
+            background: linear-gradient(135deg, #4caf50, #2e7d32);
+            animation-delay: 6s;
+        }
+
+        /* Interactive 3D Pyramid */
+        .pyramid-container {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+            width: 180px;
+            height: 180px;
+            transform-style: preserve-3d;
+            animation: rotatePyramid 20s infinite linear;
+            z-index: 3;
+        }
+
+        .pyramid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+        }
+
+        .pyramid-side {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 90px solid transparent;
+            border-right: 90px solid transparent;
+            border-bottom: 180px solid rgba(255, 255, 255, 0.2);
+            transform-origin: center bottom;
+        }
+
+        .side-1 {
+            transform: rotateY(0deg) rotateX(30deg);
+            border-bottom-color: rgba(255, 171, 0, 0.6);
+        }
+
+        .side-2 {
+            transform: rotateY(90deg) rotateX(30deg);
+            border-bottom-color: rgba(0, 188, 212, 0.6);
+        }
+
+        .side-3 {
+            transform: rotateY(180deg) rotateX(30deg);
+            border-bottom-color: rgba(26, 35, 126, 0.6);
+        }
+
+        .side-4 {
+            transform: rotateY(270deg) rotateX(30deg);
+            border-bottom-color: rgba(76, 175, 80, 0.6);
+        }
+
+        .pyramid-base {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotateX(90deg) translateZ(-90px);
+            border-radius: 5px;
+        }
+
+        /* Interactive Stats */
+        .interactive-stats {
+            position: absolute;
+            bottom: 120px;
+            left: 5%;
+            display: flex;
+            gap: 2rem;
+            z-index: 5;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            min-width: 150px;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.8s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-item.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-text {
+            font-size: 1rem;
+            color: white;
+            font-weight: 500;
+        }
+
+        /* CTA Button with 3D Effect */
+        .cta-3d {
+            position: absolute;
+            bottom: 40px;
+            left: 5%;
+            z-index: 5;
+        }
+
+        .btn-3d {
+            padding: 1.2rem 2.5rem;
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3),
+                        0 6px 0 var(--secondary-dark);
+            transform: translateY(0);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-3d:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4),
+                        0 8px 0 var(--secondary-dark);
+        }
+
+        .btn-3d:active {
+            transform: translateY(2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3),
+                        0 2px 0 var(--secondary-dark);
+        }
+
+        /* Animations */
+        @keyframes floatElement {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+            50% {
+                transform: translateY(10px) rotate(-5deg);
+            }
+            75% {
+                transform: translateY(-15px) rotate(3deg);
+            }
+        }
+
+        @keyframes rotatePyramid {
+            0% {
+                transform: translateY(-50%) rotateY(0deg);
+            }
+            100% {
+                transform: translateY(-50%) rotateY(360deg);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        .pulse {
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: var(--gray-light);
+            color: var(--primary);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Quick Info Section */
+        .quick-info {
+            padding: 4rem 2rem;
+            background: var(--white);
+        }
+
+        .info-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--light);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .info-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+
+        .info-card p {
+            color: var(--gray);
+        }
+
+        /* Programs Section */
+        .programs {
+            background: var(--white);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .program-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            z-index: 2;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .program-header {
+            padding: 2rem 2rem 1rem;
+        }
+
+        .program-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .program-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+
+        .program-desc {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .program-features {
+            list-style: none;
+            padding: 0 2rem 1.5rem;
+        }
+
+        .program-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .program-features i {
+            color: var(--success);
+            font-size: 0.9rem;
+        }
+
+        .program-cta {
+            padding: 0 2rem 2rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.03"><polygon fill="white" points="0,0 1000,1000 0,1000"/></svg>');
+            background-size: cover;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .stat-text {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Campus Section */
+        .campus {
+            background: var(--light);
+        }
+
+        .campus-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .campus-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: var(--white);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .campus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .campus-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .campus-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .campus-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .campus-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .campus-card:hover .campus-image img {
+            transform: scale(1.05);
+        }
+
+        .campus-content {
+            padding: 1.5rem;
+        }
+
+        .campus-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+
+        .campus-desc {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        /* Placement Section */
+        .placement {
+            padding: 5rem 2rem;
+            background: var(--white);
+        }
+
+        .placement-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .placement-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .placement-stat-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .placement-stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .placement-stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .placement-stat-text {
+            color: #555;
+        }
+
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .company-logo {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .company-logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .company-logo img {
+            max-width: 100%;
+            max-height: 50px;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .company-logo:hover img {
+            filter: grayscale(0%);
+        }
+
+        /* News & Events Section */
+        .news {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .news-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+        }
+
+        .news-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .news-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .news-card:hover .news-image img {
+            transform: scale(1.1);
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-date {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .news-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .news-content p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .read-more:hover {
+            gap: 10px;
+        }
+
+        /* Adopted Villages Section */
+        .villages {
+            padding: 5rem 2rem;
+            background: white;
+            color: rgb(48, 48, 48);
+        }
+
+        .villages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .village-card {
+            background: rgba(109, 109, 109, 0.15);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .village-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .village-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .village-card:hover {
+            transform: translateY(-10px) rotateY(10deg);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .village-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .village-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .village-card p {
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            color: white;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-col p, .footer-col a {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-light);
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease;
+        }
+
+        /* Button Styles */
+        .btn {
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            color: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .pyramid-container {
+                display: none;
+            }
+            
+            .interactive-stats {
+                left: 5%;
+            }
+            
+            .cta-3d {
+                left: 5%;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .section-title {
+                font-size: 2.3rem;
+            }
+            
+            .slide h2 {
+                font-size: 2rem;
+            }
+            
+            .slide p {
+                font-size: 1.1rem;
+            }
+            
+            .interactive-stats {
+                flex-wrap: wrap;
+                justify-content: center;
+                left: 5%;
+                right: 5%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 1rem;
+                box-shadow: var(--shadow-lg);
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .slider-container {
+                height: 500px;
+            }
+            
+            section {
+                padding: 4rem 1rem;
+            }
+            
+            .floating-elements {
+                display: none;
+            }
+            
+            .slide-content {
+                padding: 2rem;
+            }
+            
+            .slide {
+                width: 90%;
+                left: 5%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .slider-section {
+                padding-top: 100px;
+                height: 80vh;
+            }
+            
+            .slider-container {
+                height: 400px;
+            }
+            
+            .slide-content {
+                padding: 1.5rem;
+            }
+            
+            .slide h2 {
+                font-size: 1.5rem;
+            }
+            
+            .slide p {
+                font-size: 1rem;
+            }
+            
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-item {
+                min-width: 120px;
+                padding: 1rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Pyramid College</h1>
+                    <p>Business & Technology</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Village Adopted By PCBT <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#"><i class="fa-solid fa-house"></i> Village 1</a>
+                            <a href="#"><i class="fa-solid fa-house"></i> Village 2</a>
+                            <a href="#"><i class="fa-solid fa-house"></i> Village 3</a>
+                            <a href="#"><i class="fa-solid fa-house"></i> Village 4</a>
+                            <a href="#"><i class="fa-solid fa-house"></i> Village 5</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Enhanced 3D Slider Section -->
+    <section class="slider-section" id="home">
+        <!-- Animated Background -->
+        <div class="animated-bg">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
+        <!-- 3D Floating Elements -->
+        <div class="floating-elements">
+            <div class="floating-element element-1">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="floating-element element-2">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="floating-element element-3">
+                <i class="fas fa-flask"></i>
+            </div>
+            <div class="floating-element element-4">
+                <i class="fas fa-briefcase"></i>
+            </div>
+        </div>
+
+        <!-- 3D Pyramid -->
+        <div class="pyramid-container">
+            <div class="pyramid">
+                <div class="pyramid-side side-1"></div>
+                <div class="pyramid-side side-2"></div>
+                <div class="pyramid-side side-3"></div>
+                <div class="pyramid-side side-4"></div>
+                <div class="pyramid-base"></div>
+            </div>
+        </div>
+
+
+        <!-- 3D Slider -->
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide active" style="background-image: url(images/banner-iic-4star.jpg);">
+                    <div class="slide-content">
+                        <h2>Welcome to Pyramid College</h2>
+                        <p>Excellence in Education Since 2008</p>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url(images/foreign-slide1.jpg);">
+                    <div class="slide-content">
+                        <h2>Modern Learning Facilities</h2>
+                        <p>State-of-the-art labs and classrooms with cutting-edge technology</p>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url(images/mous-slider-2023.jpg);">
+                    <div class="slide-content">
+                        <h2>Vibrant Campus Life</h2>
+                        <p>Join our diverse student community with 50+ clubs and activities</p>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url(images/scholarship-banner.jpg);">
+                    <div class="slide-content">
+                        <h2>Expert Faculty</h2>
+                        <p>Learn from 200+ industry professionals and academic experts</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <button class="active"></button>
+                <button></button>
+                <button></button>
+                <button></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Info Section -->
+    <section class="quick-info">
+        <div class="info-container">
+            <div class="info-card">
+                <div class="info-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Quality Education</h3>
+                <p>Industry-aligned curriculum with experienced faculty</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>Modern Facilities</h3>
+                <p>State-of-the-art labs and technology infrastructure</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h3>Career Support</h3>
+                <p>95% placement record with top companies</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3>Global Exposure</h3>
+                <p>International collaborations and exchange programs</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="section-header">
+            <span class="section-label">Academic Programs</span>
+            <h2 class="section-title">Shape Your Future With Our Programs</h2>
+            <p class="section-subtitle">Choose from our wide range of undergraduate, postgraduate, and diploma programs designed to meet industry demands.</p>
+        </div>
+        
+        <div class="programs-grid">
+            <div class="program-card fade-in">
+                <div class="program-header">
+                    <div class="program-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="program-title">Bachelor of Computer Application</h3>
+                    <p class="program-desc">Comprehensive program in software development, AI.</p>
+                </div>
+                <ul class="program-features">
+                    <li><i class="fas fa-check"></i> Industry-aligned curriculum</li>
+                    <li><i class="fas fa-check"></i> Hands-on projects</li>
+                    <li><i class="fas fa-check"></i> Internship opportunities</li>
+                </ul>
+                <div class="program-cta">
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="program-card fade-in">
+                <div class="program-header">
+                    <div class="program-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="program-title">MBA Programs</h3>
+                    <p class="program-desc">Develop leadership and strategic thinking skills with specializations in Marketing, Finance, and HR.</p>
+                </div>
+                <ul class="program-features">
+                    <li><i class="fas fa-check"></i> Case-based learning</li>
+                    <li><i class="fas fa-check"></i> Industry mentorship</li>
+                    <li><i class="fas fa-check"></i> Global business perspective</li>
+                </ul>
+                <div class="program-cta">
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="program-card fade-in">
+                <div class="program-header">
+                    <div class="program-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="program-title">B.Tech Electronics</h3>
+                    <p class="program-desc">Hands-on engineering program with advanced labs in electronics, communication, and embedded systems.</p>
+                </div>
+                <ul class="program-features">
+                    <li><i class="fas fa-check"></i> Modern laboratories</li>
+                    <li><i class="fas fa-check"></i> Research opportunities</li>
+                    <li><i class="fas fa-check"></i> Industry projects</li>
+                </ul>
+                <div class="program-cta">
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="section-header">
+            <span class="section-label">Our Achievements</span>
+            <h2 class="section-title">Excellence in Numbers</h2>
+        </div>
+        
+        <div class="stats-container">
+            <div class="stat-card fade-in">
+                <div class="stat-icon">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <div class="stat-number">5000+</div>
+                <div class="stat-text">Successful Alumni</div>
+            </div>
+            
+            <div class="stat-card fade-in">
+                <div class="stat-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="stat-number">95%</div>
+                <div class="stat-text">Placement Record</div>
+            </div>
+            
+            <div class="stat-card fade-in">
+                <div class="stat-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <div class="stat-number">200+</div>
+                <div class="stat-text">Expert Faculty</div>
+            </div>
+            
+            <div class="stat-card fade-in">
+                <div class="stat-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="stat-number">15+</div>
+                <div class="stat-text">Years of Excellence</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campus Section -->
+    <section class="campus" id="campus">
+        <div class="section-header">
+            <span class="section-label">Campus Facilities</span>
+            <h2 class="section-title">Our World-Class Infrastructure</h2>
+            <p class="section-subtitle">Our campus is designed to provide an enriching environment for learning, innovation, and personal growth.</p>
+        </div>
+        
+        <div class="campus-container">
+            <div class="campus-tabs">
+                <button class="tab-btn active" data-tab="facilities">Facilities</button>
+                <button class="tab-btn" data-tab="academics">Academics</button>
+                <button class="tab-btn" data-tab="student-life">Student Life</button>
+            </div>
+            
+            <div class="tab-content active" id="facilities">
+                <div class="campus-grid">
+                    <div class="campus-card">
+                        <div class="campus-image">
+                            <img src="images/lb.jpg" alt="Library">
+                        </div>
+                        <div class="campus-content">
+                            <h3 class="campus-title">Modern Library</h3>
+                            <p class="campus-desc">Our library offers extensive collections, digital resources, and collaborative study spaces.</p>
+                            <a href="#" class="btn btn-primary">Explore</a>
+                        </div>
+                    </div>
+                    
+                    <div class="campus-card">
+                        <div class="campus-image">
+                            <img src="images/lab.jpg" alt="Labs">
+                        </div>
+                        <div class="campus-content">
+                            <h3 class="campus-title">Advanced Labs</h3>
+                            <p class="campus-desc">State-of-the-art laboratories equipped with the latest technology and equipment.</p>
+                            <a href="#" class="btn btn-primary">Explore</a>
+                        </div>
+                    </div>
+                    
+                    <div class="campus-card">
+                        <div class="campus-image">
+                            <img src="images/hall.jpg" alt="Sports">
+                        </div>
+                        <div class="campus-content">
+                            <h3 class="campus-title">Auditorium</h3>
+                            <p class="campus-desc">An auditorium is a large, enclosed room built to enable an audience to attend live lectures, stage performances, concerts, and other gatherings.</p>
+                            <a href="#" class="btn btn-primary">Explore</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Placement Section -->
+    <section class="placement">
+        <div class="section-header">
+            <span class="section-label">Career Opportunities</span>
+            <h2 class="section-title">Placements & Recruiters</h2>
+            <p class="section-subtitle">Our students get placed in top companies with attractive packages</p>
+        </div>
+        
+        <div class="placement-content">
+            <div class="placement-stats">
+                <div class="placement-stat-card">
+                    <div class="placement-stat-number">95%</div>
+                    <div class="placement-stat-text">Placement Record</div>
+                </div>
+                <div class="placement-stat-card">
+                    <div class="placement-stat-number">200+</div>
+                    <div class="placement-stat-text">Companies Visited</div>
+                </div>
+                <div class="placement-stat-card">
+                    <div class="placement-stat-number">₹6.5 LPA</div>
+                    <div class="placement-stat-text">Highest Package</div>
+                </div>
+                <div class="placement-stat-card">
+                    <div class="placement-stat-number">₹3.8 LPA</div>
+                    <div class="placement-stat-text">Average Package</div>
+                </div>
+            </div>
+            
+            <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary);">Our Recruiters</h3>
+            <div class="companies-grid">
+                <div class="company-logo">
+                    <img src="images/partner-15.png" alt="owl image">
+                </div>
+                <div class="company-logo">
+                    <img src="images/partner-20.jpg" alt="owl image">
+                </div>
+                <div class="company-logo">
+                    <img src="images/partner-5.jpg" alt="Microsoft">
+                </div>
+                <div class="company-logo">
+                    <img src="images/partner-7.jpg" alt="Apple">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Events Section -->
+    <section class="news">
+        <div class="section-header">
+            <span class="section-label">News & Events</span>
+            <h2 class="section-title">Latest Updates</h2>
+            <p class="section-subtitle">Stay updated with the latest happenings at Pyramid College</p>
+        </div>
+        
+        <div class="news-grid">
+            <div class="news-card fade-in">
+                <div class="news-image">
+                    <img src="images/admission-2025.jpg" alt="Tech Fest">
+                </div>
+                <div class="news-content">
+                    <div class="news-date">Latest</div>
+                    <h3>Admission Open 2025-26</h3>
+                    <p>Pyramid College Admissions Are Open For Everyone Ready To Step Up</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="news-card fade-in">
+                <div class="news-image">
+                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Placement Drive">
+                </div>
+                <div class="news-content">
+                    <div class="news-date">May 28, 2023</div>
+                    <h3>Record Placement Season</h3>
+                    <p>This year's placement drive saw 92% of our students placed with top companies.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="news-card fade-in">
+                <div class="news-image">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Workshop">
+                </div>
+                <div class="news-content">
+                    <div class="news-date">April 10, 2023</div>
+                    <h3>Industry-Academia Workshop</h3>
+                    <p>Leading industry experts conducted workshops on emerging technologies.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adopted Villages Section -->
+    <section class="villages" id="villages">
+        <div class="section-header">
+            <h2 class="section-title">Adopted Villages</h2>
+            <p class="section-subtitle">Our Commitment to Rural Development and Community Engagement</p>
+        </div>
+        <div class="villages-grid">
+            <div class="village-card fade-in-up">
+                <div class="village-icon">
+                    <i class="fas fa-tree"></i>
+                </div>
+                <h3>Green Valley</h3>
+                <p>Educational support and infrastructure development for sustainable agriculture practices. Computer literacy programs for village youth.</p>
+            </div>
+            <div class="village-card fade-in-up">
+                <div class="village-icon">
+                    <i class="fas fa-water"></i>
+                </div>
+                <h3>Riverbend</h3>
+                <p>Clean water initiatives and health education programs for improved community wellbeing. Regular medical camps and sanitation awareness.</p>
+            </div>
+            <div class="village-card fade-in-up">
+                <div class="village-icon">
+                    <i class="fas fa-mountain"></i>
+                </div>
+                <h3>Mountain View</h3>
+                <p>Digital literacy programs and technology access for remote learning opportunities. Setting up computer centers in village schools.</p>
+            </div>
+            <div class="village-card fade-in-up">
+                <div class="village-icon">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <h3>Sunshine Village</h3>
+                <p>Renewable energy projects and vocational training for sustainable economic growth. Solar lighting initiatives and skill development workshops.</p>
+            </div>
+            <div class="village-card fade-in-up">
+                <div class="village-icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <h3>Bloomfield</h3>
+                <p>Agricultural innovation center and youth entrepreneurship programs. Organic farming techniques and market linkage support.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Pyramid College</h3>
+                <p>Pyramid College of Business and Technology has been providing quality education since 2008, focusing on holistic development and industry-ready skills.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#programs">Programs</a>
+                <a href="#campus">Campus</a>
+                <a href="#admissions">Admissions</a>
+                <a href="#contact">Contact</a>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Programs</h3>
+                <a href="#">B.Tech Computer Science</a>
+                <a href="#">B.Tech Electronics</a>
+                <a href="#">MBA Programs</a>
+                <a href="#">BCA & MCA</a>
+                <a href="#">BBA Programs</a>
+                <a href="#">Diploma Programs</a>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Pyramid College, Education Hub, Knowledge City, India</p>
+                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fas fa-envelope"></i> info@pyramidcollege.edu.in</p>
+                <p><i class="fas fa-globe"></i> www.pyramidcollege.edu.in</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 Pyramid College of Business and Technology. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 3D Slider Functionality
+            const slides = document.querySelectorAll('.slide');
+            const sliderNav = document.querySelectorAll('.slider-nav button');
+            let currentSlide = 0;
+            
+            // Initialize slider
+            updateSlider();
+            
+            // Add click events to slider navigation
+            sliderNav.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateSlider();
+                });
+            });
+            
+            // Auto-advance slides
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                updateSlider();
+            }, 6000);
+            
+            function updateSlider() {
+                // Update slides with enhanced 3D effects
+                slides.forEach((slide, index) => {
+                    if (index === currentSlide) {
+                        slide.classList.add('active');
+                        slide.style.transform = 'translateZ(0) rotateY(0deg)';
+                        slide.style.zIndex = '10';
+                        slide.style.opacity = '1';
+                    } else {
+                        slide.classList.remove('active');
+                        const offset = index - currentSlide;
+                        // Enhanced 3D transformation with rotation
+                        slide.style.transform = `translateX(${offset * 35}%) translateZ(-400px) rotateY(${offset * 10}deg)`;
+                        slide.style.zIndex = '1';
+                        slide.style.opacity = '0.6';
+                    }
+                });
+                
+                // Update navigation dots
+                sliderNav.forEach((dot, index) => {
+                    if (index === currentSlide) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+                
+                // Animate interactive stats
+                animateStats();
+            }
+            
+            // Animate interactive stats
+            function animateStats() {
+                const statItems = document.querySelectorAll('.stat-item');
+                statItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.add('active');
+                    }, index * 300);
+                });
+            }
+            
+            // Initialize stats animation
+            setTimeout(animateStats, 1000);
+            
+            // Mouse move parallax effect
+            document.addEventListener('mousemove', (e) => {
+                const floatingElements = document.querySelectorAll('.floating-element');
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+                
+                floatingElements.forEach(element => {
+                    element.style.transform = `translate(${xAxis}px, ${yAxis}px)`;
+                });
+            });
+            
+            // Mobile menu toggle
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const nav = document.querySelector('nav ul');
+            
+            mobileMenu.addEventListener('click', () => {
+                if (nav.style.display === 'flex') {
+                    nav.style.display = 'none';
+                } else {
+                    nav.style.display = 'flex';
+                }
+            });
+            
+            // Tab functionality
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+                    
+                    // Show corresponding content
+                    const tabId = btn.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Back to top button
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('active');
+                } else {
+                    backToTopButton.classList.remove('active');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu after clicking a link
+                        if (window.innerWidth <= 768) {
+                            nav.style.display = 'none';
+                        }
+                    }
+                });
+            });
+            
+            // Animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.program-card, .stat-card, .village-card, .news-card, .info-card').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.style.background = 'rgba(255, 255, 255, 0.98)';
+                    header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+                } else {
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
+                    header.style.boxShadow = 'var(--shadow)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
